@@ -1,0 +1,14 @@
+PODS:
+  - SpotifySDK (0.1.0)
+
+DEPENDENCIES:
+  - SpotifySDK (from `../../Sources/spotify-ios-sdk`)
+
+EXTERNAL SOURCES:
+  SpotifySDK:
+    :path: ../../Sources/spotify-ios-sdk
+
+SPEC CHECKSUMS:
+  SpotifySDK: da8a71c82723defb563089896f5b6b33d3a1162a
+
+COCOAPODS: 0.33.1
