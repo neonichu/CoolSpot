@@ -30,5 +30,18 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>com.spotify.simpletrackplayback-auth</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>spotify-ios-sdk-beta</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>
