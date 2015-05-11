@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		519DD3A7A1404CA5B710C99A /* libPods-CoolSpot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA3C5346DA34143B15439FC /* libPods-CoolSpot.a */; };
+		99D664EC072672D19310B430 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9870A09E9802D1188D79C816 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A15A5A76194DE7D600FDE271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A75194DE7D600FDE271 /* AppDelegate.swift */; };
 		A15A5A78194DE7D600FDE271 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15A5A77194DE7D600FDE271 /* Images.xcassets */; };
 		A15A5A84194DE7D600FDE271 /* CoolSpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A83194DE7D600FDE271 /* CoolSpotTests.swift */; };
@@ -80,8 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8DA3C5346DA34143B15439FC /* libPods-CoolSpot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoolSpot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A12DFBCC194DEC0D00733D9F /* Pods-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Pods-BridgingHeader.h"; path = "Code/Pods-BridgingHeader.h"; sourceTree = SOURCE_ROOT; };
+		9870A09E9802D1188D79C816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15A5A70194DE7D600FDE271 /* CoolSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15A5A74194DE7D600FDE271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A15A5A75194DE7D600FDE271 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +88,8 @@
 		A15A5A7D194DE7D600FDE271 /* CoolSpotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolSpotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15A5A82194DE7D600FDE271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A15A5A83194DE7D600FDE271 /* CoolSpotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolSpotTests.swift; sourceTree = "<group>"; };
-		BE8A582721B84940BA096385 /* Pods-CoolSpot.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolSpot.xcconfig"; path = "Pods/Pods-CoolSpot.xcconfig"; sourceTree = SOURCE_ROOT; };
+		ADF7260D923B3A2B1E42D56E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D678D9176BCB29630D288C19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				519DD3A7A1404CA5B710C99A /* libPods-CoolSpot.a in Frameworks */,
+				99D664EC072672D19310B430 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,11 +115,12 @@
 			isa = PBXGroup;
 			children = (
 				A15A5A72194DE7D600FDE271 /* Code */,
+				E41FAC88E765D958B8FED862 /* Frameworks */,
+				B26EDC234D2B16A02E864FD3 /* Pods */,
 				A15A5A71194DE7D600FDE271 /* Products */,
 				A15A5A99194DE86500FDE271 /* Resources */,
 				A15A5A73194DE7D600FDE271 /* Supporting Files */,
 				A15A5A80194DE7D600FDE271 /* Tests */,
-				BA00A3C52DE24B61B22EE861 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,8 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				A15A5A74194DE7D600FDE271 /* Info.plist */,
-				A12DFBCC194DEC0D00733D9F /* Pods-BridgingHeader.h */,
-				BE8A582721B84940BA096385 /* Pods-CoolSpot.xcconfig */,
 			);
 			name = "Supporting Files";
 			path = CoolSpot;
@@ -168,10 +167,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		BA00A3C52DE24B61B22EE861 /* Frameworks */ = {
+		B26EDC234D2B16A02E864FD3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8DA3C5346DA34143B15439FC /* libPods-CoolSpot.a */,
+				D678D9176BCB29630D288C19 /* Pods.debug.xcconfig */,
+				ADF7260D923B3A2B1E42D56E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E41FAC88E765D958B8FED862 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9870A09E9802D1188D79C816 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -183,11 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A15A5A87194DE7D600FDE271 /* Build configuration list for PBXNativeTarget "CoolSpot" */;
 			buildPhases = (
-				146D34F354604538ACC4DBDF /* Check Pods Manifest.lock */,
+				49BFB4B9F534E834B5CFED50 /* Check Pods Manifest.lock */,
 				A15A5A6C194DE7D600FDE271 /* Sources */,
 				A15A5A6D194DE7D600FDE271 /* Frameworks */,
 				A15A5A6E194DE7D600FDE271 /* Resources */,
-				2D0AB77FC31A4968A174D39E /* Copy Pods Resources */,
+				92D573273DBB68FF21DB4074 /* Embed Pods Frameworks */,
+				79A2C36E485E5F8885E02A73 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,7 +289,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		146D34F354604538ACC4DBDF /* Check Pods Manifest.lock */ = {
+		49BFB4B9F534E834B5CFED50 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -295,7 +304,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2D0AB77FC31A4968A174D39E /* Copy Pods Resources */ = {
+		79A2C36E485E5F8885E02A73 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -307,7 +316,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-CoolSpot-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92D573273DBB68FF21DB4074 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -382,7 +406,6 @@
 /* Begin XCBuildConfiguration section */
 		A15A5A85194DE7D600FDE271 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE8A582721B84940BA096385 /* Pods-CoolSpot.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -460,27 +483,25 @@
 		};
 		A15A5A88194DE7D600FDE271 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE8A582721B84940BA096385 /* Pods-CoolSpot.xcconfig */;
+			baseConfigurationReference = D678D9176BCB29630D288C19 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Code/Pods-BridgingHeader.h";
 			};
 			name = Debug;
 		};
 		A15A5A89194DE7D600FDE271 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE8A582721B84940BA096385 /* Pods-CoolSpot.xcconfig */;
+			baseConfigurationReference = ADF7260D923B3A2B1E42D56E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Code/Pods-BridgingHeader.h";
 			};
 			name = Release;
 		};

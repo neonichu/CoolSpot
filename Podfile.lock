@@ -1,14 +1,22 @@
 PODS:
+  - KeychainAccess (1.2.0)
+  - Keys (1.0.0)
   - SpotifySDK (0.1.0)
 
 DEPENDENCIES:
-  - SpotifySDK (from `https://github.com/neonichu/ios-sdk`)
+  - KeychainAccess
+  - Keys (from `Pods/CocoaPodsKeys/`)
+  - SpotifySDK (from `../../Sources/spotify-ios-sdk`)
 
 EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys/
   SpotifySDK:
-    :git: https://github.com/neonichu/ios-sdk
+    :path: ../../Sources/spotify-ios-sdk
 
 SPEC CHECKSUMS:
-  SpotifySDK: da8a71c82723defb563089896f5b6b33d3a1162a
+  KeychainAccess: 6ff20bd4990b4840d8bde4e977f8c58e0fe7f3c1
+  Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
+  SpotifySDK: e7b205876d5938dc3978a2074d199653089072c9
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.37.1

@@ -6,29 +6,40 @@
 //  Copyright (c) 2014 Boris Bügling. All rights reserved.
 //
 
+import KeychainAccess
+import Keys
+import Spotify
 import UIKit
 
-let kClientId       = "spotify-ios-sdk-beta"
-let kCallbackURL    = "spotify-ios-sdk-beta://callback"
-
+let kClientId               = CoolSpotKeys().spotifyClientId()
+let kCallbackURL            = "coolspot://callback"
 let kSessionUserDefaultsKey = "SpotifySession"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-                            
+    let keychain = Keychain(service: kClientId)
+    var auth: SPTAuth {
+        let auth = SPTAuth.defaultInstance()
+        auth.clientID = kClientId
+        auth.redirectURL = NSURL(string: kCallbackURL)
+        auth.requestedScopes = [SPTAuthUserReadPrivateScope]
+        return auth
+    }
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        var plistRep : AnyObject! = NSUserDefaults.standardUserDefaults().valueForKey(kSessionUserDefaultsKey)
-        var session = SPTSession(propertyListRepresentation:plistRep)
-        
-        if (session.credential? && countElements(String(session.credential)) > 0) {
-            self.enableAudioPlaybackWithSession(session)
-        } else {
-            var auth = SPTAuth.defaultInstance()
-            var loginURL = auth.loginURLForClientId(kClientId,
-                declaredRedirectURL:NSURL.URLWithString(kCallbackURL), scopes:["login"])
-            
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        var validSession = false
+
+        if let data = keychain.getData(kSessionUserDefaultsKey), session = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? SPTSession {
+            if session.isValid() {
+                self.enableAudioPlaybackWithSession(session)
+                validSession = true
+            }
+        }
+
+        if !validSession {
+            var loginURL = auth.loginURL
+
             var delayInSeconds = 0.1
             var popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
             dispatch_after(popTime, dispatch_get_main_queue(), {
@@ -38,30 +49,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window!.backgroundColor = UIColor.whiteColor()
-        self.window!.rootViewController = UIViewController()
-        self.window!.makeKeyAndVisible()
+        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window?.rootViewController = UIViewController()
+        self.window?.makeKeyAndVisible()
         
         return true
     }
     
-    func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         
-        var authCallback = { (error: NSError!, session: SPTSession!) -> Void in
-            if (error != nil) {
+        var authCallback = { (error: NSError?, session: SPTSession?) -> Void in
+            if let error = error {
                 NSLog("*** Auth error: %@", error)
                 return
             }
-            
-            NSUserDefaults.standardUserDefaults().setValue(session.propertyListRepresentation(),
-                forKey:kSessionUserDefaultsKey)
-            self.enableAudioPlaybackWithSession(session)
+
+            if let session = session {
+                self.keychain.set( NSKeyedArchiver.archivedDataWithRootObject(session), key: kSessionUserDefaultsKey)
+                self.enableAudioPlaybackWithSession(session)
+            }
         }
         
-        if (SPTAuth.defaultInstance().canHandleURL(url, withDeclaredRedirectURL:NSURL.URLWithString(kCallbackURL))) {
-            SPTAuth.defaultInstance().handleAuthCallbackWithTriggeredAuthURL(url,
-                tokenSwapServiceEndpointAtURL:NSURL.URLWithString("http://localhost:1234/swap"),
-                callback:authCallback)
+        if (auth.canHandleURL(url)) {
+            auth.handleAuthCallbackWithTriggeredAuthURL(url, callback:authCallback)
             return true
         }
         
@@ -72,6 +82,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //var viewController = self.window!.rootViewController
         //viewController.handleNewSession(session)
     }
-    
 }
-
