@@ -17,7 +17,7 @@ Do a
 
 and then open the workspace and you should be good to go.
 
-Doing so the first time will install [CocoaPods][2] for you automatically and will
+Doing so the first time will install [CocoaPods][4] for you automatically and will
 ask you for a [Spotify][1] client ID. You can obtain one in the [developer center][2] by creating an application under *My Apps* - make sure to set `coolspot://callback` as the *Redirect URI*. The ID is stored in your keychain via [cocoapods-keys][3].
 
 ## Help needed
@@ -27,3 +27,4 @@ Follow [@NeoNacho](https://twitter.com/NeoNacho) to help me beat [@orta](https:/
 [1]: https://www.spotify.com/
 [2]: https://developer.spotify.com
 [3]: https://github.com/orta/cocoapods-keys
+[4]: http://cocoapods.org
