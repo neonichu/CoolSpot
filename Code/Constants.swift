@@ -12,6 +12,7 @@ let AppGroupIdentifier = "group.org.vu0.CoolSpot"
 
 let Errors = "CoolSpot.Errors"
 let Next = "CoolSpot.Next"
+let Stop = "CoolSpot.Stop"
 let TrackInfo = "CoolSpot.TrackInfo"
 
 enum Track : String {

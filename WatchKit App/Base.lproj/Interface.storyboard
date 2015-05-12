@@ -25,6 +25,15 @@
                             </items>
                         </group>
                     </items>
+                    <menu key="menu" id="KGg-hj-97a">
+                        <items>
+                            <menuItem title="Stop" icon="pause" id="kdy-wo-FHj">
+                                <connections>
+                                    <action selector="stop" destination="AgC-eL-Hgc" id="ZxQ-gc-Aiz"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="image" destination="9JD-A4-OwP" id="hOf-yX-SD8"/>
                     </connections>

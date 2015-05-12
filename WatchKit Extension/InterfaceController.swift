@@ -14,6 +14,11 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var image: WKInterfaceImage!
     let wormhole = MMWormhole(applicationGroupIdentifier: AppGroupIdentifier, optionalDirectory: AppGroupIdentifier)
 
+    @IBAction func stop() {
+        tickle()
+        wormhole.passMessageObject(Stop, identifier: Stop)
+    }
+
     @IBAction func tapped() {
         tickle()
         wormhole.passMessageObject(Next, identifier: Next)

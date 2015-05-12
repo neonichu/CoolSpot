@@ -138,6 +138,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
             }
         }
 
+        wormhole.listenForMessageWithIdentifier(Stop) { (reply) in
+            if let reply: AnyObject = reply {
+                self.play()
+            }
+        }
+
         SPTYourMusic.savedTracksForUserWithAccessToken(session.accessToken, callback: { (error, result) -> Void in
             if let result = result as? SPTListPage {
                 self.fetchAll(result) { (tracks) in
@@ -170,7 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
     }
 
     func play() {
-        self.player.setIsPlaying(self.player.isPlaying, callback: { (error) -> Void in
+        self.player.setIsPlaying(!self.player.isPlaying, callback: { (error) -> Void in
             if let error = error {
                 self.log(String(format: "setIsPlaying error: %@", error))
             }
