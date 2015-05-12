@@ -18,7 +18,9 @@ Do a
 and then open the workspace and you should be good to go.
 
 Doing so the first time will install [CocoaPods][4] for you automatically and will
-ask you for a [Spotify][1] client ID. You can obtain one in the [developer center][2] by creating an application under *My Apps* - make sure to set `coolspot://callback` as the *Redirect URI*. The ID is stored in your keychain via [cocoapods-keys][3].
+ask you for a [Spotify][1] client ID. You can obtain one in the [developer center][2] by creating an application under *My Apps* - make sure to set `coolspot://callback` as the *Redirect URI*. The ID is stored in your keychain via [cocoapods-keys][3]. 
+
+You will also need to setup a *Token Refresh Service*, see [#3](../../issues/3) for more information. Without this you'd need to login again about once every hour. ¯\\\_(ツ)\_/¯ 
 
 ## Help needed
 
