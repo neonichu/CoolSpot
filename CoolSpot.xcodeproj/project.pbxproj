@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51CE40442C9D7ED93ED34BE6 /* Pods_CoolSpot_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		99D664EC072672D19310B430 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9870A09E9802D1188D79C816 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A15A5A76194DE7D600FDE271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A75194DE7D600FDE271 /* AppDelegate.swift */; };
 		A15A5A78194DE7D600FDE271 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15A5A77194DE7D600FDE271 /* Images.xcassets */; };
 		A15A5A84194DE7D600FDE271 /* CoolSpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A83194DE7D600FDE271 /* CoolSpotTests.swift */; };
+		A1DA12251B01715600346D6B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA12241B01715600346D6B /* InterfaceController.swift */; };
+		A1DA12291B01715600346D6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DA12281B01715600346D6B /* Images.xcassets */; };
+		A1DA122D1B01715600346D6B /* CoolSpot WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = A1DA122C1B01715600346D6B /* CoolSpot WatchKit App.app */; };
+		A1DA12351B01715600346D6B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DA12331B01715600346D6B /* Interface.storyboard */; };
+		A1DA12371B01715600346D6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1DA12361B01715600346D6B /* Images.xcassets */; };
+		A1DA123A1B01715600346D6B /* CoolSpot WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A1DA121F1B01715600346D6B /* CoolSpot WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1DA12451B01758100346D6B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA12441B01758100346D6B /* Constants.swift */; };
+		A1DA12461B01758100346D6B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA12441B01758100346D6B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,9 +86,39 @@
 			remoteGlobalIDString = A15A5A6F194DE7D600FDE271;
 			remoteInfo = CoolSpot;
 		};
+		A1DA122E1B01715600346D6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A15A5A68194DE7D600FDE271 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1DA122B1B01715600346D6B;
+			remoteInfo = "CoolSpot WatchKit App";
+		};
+		A1DA12381B01715600346D6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A15A5A68194DE7D600FDE271 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1DA121E1B01715600346D6B;
+			remoteInfo = "CoolSpot WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A1DA12411B01715600346D6B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A1DA123A1B01715600346D6B /* CoolSpot WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		328159BE741B69D0DC4FC71D /* Pods-CoolSpot WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolSpot WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoolSpot WatchKit Extension/Pods-CoolSpot WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolSpot_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9870A09E9802D1188D79C816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15A5A70194DE7D600FDE271 /* CoolSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15A5A74194DE7D600FDE271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,8 +127,20 @@
 		A15A5A7D194DE7D600FDE271 /* CoolSpotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolSpotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15A5A82194DE7D600FDE271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A15A5A83194DE7D600FDE271 /* CoolSpotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolSpotTests.swift; sourceTree = "<group>"; };
+		A1DA121F1B01715600346D6B /* CoolSpot WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CoolSpot WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DA12221B01715600346D6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1DA12241B01715600346D6B /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		A1DA12281B01715600346D6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A1DA122C1B01715600346D6B /* CoolSpot WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoolSpot WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DA12321B01715600346D6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1DA12341B01715600346D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A1DA12361B01715600346D6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A1DA12421B01753200346D6B /* CoolSpot WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CoolSpot WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		A1DA12431B01754D00346D6B /* CoolSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CoolSpot.entitlements; sourceTree = SOURCE_ROOT; };
+		A1DA12441B01758100346D6B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADF7260D923B3A2B1E42D56E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D678D9176BCB29630D288C19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FCD3E819C57A5620FC6706DC /* Pods-CoolSpot WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolSpot WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoolSpot WatchKit Extension/Pods-CoolSpot WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +159,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1DA121C1B01715600346D6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51CE40442C9D7ED93ED34BE6 /* Pods_CoolSpot_WatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -121,6 +180,8 @@
 				A15A5A99194DE86500FDE271 /* Resources */,
 				A15A5A73194DE7D600FDE271 /* Supporting Files */,
 				A15A5A80194DE7D600FDE271 /* Tests */,
+				A1DA12301B01715600346D6B /* WatchKit App */,
+				A1DA12201B01715600346D6B /* WatchKit Extension */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +190,8 @@
 			children = (
 				A15A5A70194DE7D600FDE271 /* CoolSpot.app */,
 				A15A5A7D194DE7D600FDE271 /* CoolSpotTests.xctest */,
+				A1DA121F1B01715600346D6B /* CoolSpot WatchKit Extension.appex */,
+				A1DA122C1B01715600346D6B /* CoolSpot WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				A15A5A75194DE7D600FDE271 /* AppDelegate.swift */,
+				A1DA12441B01758100346D6B /* Constants.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -144,6 +208,7 @@
 		A15A5A73194DE7D600FDE271 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1DA12431B01754D00346D6B /* CoolSpot.entitlements */,
 				A15A5A74194DE7D600FDE271 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -167,11 +232,44 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A1DA12201B01715600346D6B /* WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A1DA12421B01753200346D6B /* CoolSpot WatchKit Extension.entitlements */,
+				A1DA12281B01715600346D6B /* Images.xcassets */,
+				A1DA12241B01715600346D6B /* InterfaceController.swift */,
+				A1DA12221B01715600346D6B /* Info.plist */,
+			);
+			name = "WatchKit Extension";
+			path = "CoolSpot WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		A1DA12301B01715600346D6B /* WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				A1DA12361B01715600346D6B /* Images.xcassets */,
+				A1DA12331B01715600346D6B /* Interface.storyboard */,
+				A1DA12321B01715600346D6B /* Info.plist */,
+				A1DA12311B01715600346D6B /* Supporting Files */,
+			);
+			name = "WatchKit App";
+			path = "CoolSpot WatchKit App";
+			sourceTree = "<group>";
+		};
+		A1DA12311B01715600346D6B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B26EDC234D2B16A02E864FD3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				D678D9176BCB29630D288C19 /* Pods.debug.xcconfig */,
 				ADF7260D923B3A2B1E42D56E /* Pods.release.xcconfig */,
+				FCD3E819C57A5620FC6706DC /* Pods-CoolSpot WatchKit Extension.debug.xcconfig */,
+				328159BE741B69D0DC4FC71D /* Pods-CoolSpot WatchKit Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -180,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				9870A09E9802D1188D79C816 /* Pods.framework */,
+				50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,10 +296,12 @@
 				A15A5A6E194DE7D600FDE271 /* Resources */,
 				92D573273DBB68FF21DB4074 /* Embed Pods Frameworks */,
 				79A2C36E485E5F8885E02A73 /* Copy Pods Resources */,
+				A1DA12411B01715600346D6B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A1DA12391B01715600346D6B /* PBXTargetDependency */,
 			);
 			name = CoolSpot;
 			productName = CoolSpot;
@@ -233,6 +334,41 @@
 			productReference = A15A5A7D194DE7D600FDE271 /* CoolSpotTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A1DA121E1B01715600346D6B /* CoolSpot WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1DA12401B01715600346D6B /* Build configuration list for PBXNativeTarget "CoolSpot WatchKit Extension" */;
+			buildPhases = (
+				469B12D02E1B63C8DD8A4248 /* Check Pods Manifest.lock */,
+				A1DA121B1B01715600346D6B /* Sources */,
+				A1DA121C1B01715600346D6B /* Frameworks */,
+				A1DA121D1B01715600346D6B /* Resources */,
+				33125015968ACDC785005151 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1DA122F1B01715600346D6B /* PBXTargetDependency */,
+			);
+			name = "CoolSpot WatchKit Extension";
+			productName = "CoolSpot WatchKit Extension";
+			productReference = A1DA121F1B01715600346D6B /* CoolSpot WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		A1DA122B1B01715600346D6B /* CoolSpot WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1DA123F1B01715600346D6B /* Build configuration list for PBXNativeTarget "CoolSpot WatchKit App" */;
+			buildPhases = (
+				A1DA122A1B01715600346D6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CoolSpot WatchKit App";
+			productName = "CoolSpot WatchKit App";
+			productReference = A1DA122C1B01715600346D6B /* CoolSpot WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -244,11 +380,28 @@
 				TargetAttributes = {
 					A15A5A6F194DE7D600FDE271 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = S69SHQL6RV;
+						DevelopmentTeam = RWJ5E97L7R;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A15A5A7C194DE7D600FDE271 = {
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = A15A5A6F194DE7D600FDE271;
+					};
+					A1DA121E1B01715600346D6B = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = RWJ5E97L7R;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					A1DA122B1B01715600346D6B = {
+						CreatedOnToolsVersion = 6.3.2;
 					};
 				};
 			};
@@ -258,6 +411,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A15A5A67194DE7D600FDE271;
 			productRefGroup = A15A5A71194DE7D600FDE271 /* Products */;
@@ -266,6 +420,8 @@
 			targets = (
 				A15A5A6F194DE7D600FDE271 /* CoolSpot */,
 				A15A5A7C194DE7D600FDE271 /* CoolSpotTests */,
+				A1DA121E1B01715600346D6B /* CoolSpot WatchKit Extension */,
+				A1DA122B1B01715600346D6B /* CoolSpot WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -286,9 +442,57 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1DA121D1B01715600346D6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DA12291B01715600346D6B /* Images.xcassets in Resources */,
+				A1DA122D1B01715600346D6B /* CoolSpot WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DA122A1B01715600346D6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DA12351B01715600346D6B /* Interface.storyboard in Resources */,
+				A1DA12371B01715600346D6B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		33125015968ACDC785005151 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoolSpot WatchKit Extension/Pods-CoolSpot WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		469B12D02E1B63C8DD8A4248 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		49BFB4B9F534E834B5CFED50 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15A5A76194DE7D600FDE271 /* AppDelegate.swift in Sources */,
+				A1DA12451B01758100346D6B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +555,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15A5A84194DE7D600FDE271 /* CoolSpotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DA121B1B01715600346D6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DA12251B01715600346D6B /* InterfaceController.swift in Sources */,
+				A1DA12461B01758100346D6B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +615,28 @@
 			target = A15A5A6F194DE7D600FDE271 /* CoolSpot */;
 			targetProxy = A15A5A9C194DE8B900FDE271 /* PBXContainerItemProxy */;
 		};
+		A1DA122F1B01715600346D6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1DA122B1B01715600346D6B /* CoolSpot WatchKit App */;
+			targetProxy = A1DA122E1B01715600346D6B /* PBXContainerItemProxy */;
+		};
+		A1DA12391B01715600346D6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1DA121E1B01715600346D6B /* CoolSpot WatchKit Extension */;
+			targetProxy = A1DA12381B01715600346D6B /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A1DA12331B01715600346D6B /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1DA12341B01715600346D6B /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A15A5A85194DE7D600FDE271 /* Debug */ = {
@@ -487,9 +722,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = CoolSpot.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -499,9 +738,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = CoolSpot.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -541,6 +784,88 @@
 			};
 			name = Release;
 		};
+		A1DA123B1B01715600346D6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCD3E819C57A5620FC6706DC /* Pods-CoolSpot WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "CoolSpot WatchKit Extension/CoolSpot WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CoolSpot WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A1DA123C1B01715600346D6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 328159BE741B69D0DC4FC71D /* Pods-CoolSpot WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "CoolSpot WatchKit Extension/CoolSpot WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "CoolSpot WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A1DA123D1B01715600346D6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = CoolSpot_WatchKit_Extension;
+				INFOPLIST_FILE = "CoolSpot WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		A1DA123E1B01715600346D6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = CoolSpot_WatchKit_Extension;
+				INFOPLIST_FILE = "CoolSpot WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -567,6 +892,24 @@
 			buildConfigurations = (
 				A15A5A8B194DE7D600FDE271 /* Debug */,
 				A15A5A8C194DE7D600FDE271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1DA123F1B01715600346D6B /* Build configuration list for PBXNativeTarget "CoolSpot WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1DA123D1B01715600346D6B /* Debug */,
+				A1DA123E1B01715600346D6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1DA12401B01715600346D6B /* Build configuration list for PBXNativeTarget "CoolSpot WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1DA123B1B01715600346D6B /* Debug */,
+				A1DA123C1B01715600346D6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

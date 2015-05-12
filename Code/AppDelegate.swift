@@ -8,6 +8,7 @@
 
 import KeychainAccess
 import Keys
+import MMWormhole
 import Spotify
 import UIKit
 
@@ -15,24 +16,44 @@ let kClientId               = CoolSpotKeys().spotifyClientId()
 let kCallbackURL            = "coolspot://callback"
 let kSessionUserDefaultsKey = "SpotifySession"
 
+extension Array {
+    func shuffled() -> [T] {
+        var list = self
+        for i in 0..<(list.count - 1) {
+            let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
+            swap(&list[i], &list[j])
+        }
+        return list
+    }
+}
+
+// MARK: - UIApplicationDelegate
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    let keychain = Keychain(service: kClientId)
+class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlaybackDelegate {
     var auth: SPTAuth {
         let auth = SPTAuth.defaultInstance()
         auth.clientID = kClientId
         auth.redirectURL = NSURL(string: kCallbackURL)
-        auth.requestedScopes = [SPTAuthUserReadPrivateScope]
+        auth.requestedScopes = [SPTAuthUserReadPrivateScope, SPTAuthUserLibraryReadScope, SPTAuthStreamingScope]
         return auth
     }
+    let keychain = Keychain(service: kClientId)
+    let wormhole = MMWormhole(applicationGroupIdentifier: AppGroupIdentifier, optionalDirectory: AppGroupIdentifier)
+
+    var player: SPTAudioStreamingController!
+    var session: SPTSession!
     var window: UIWindow?
+
+    // MARK: - Application lifecycle
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         var validSession = false
 
         if let data = keychain.getData(kSessionUserDefaultsKey), session = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? SPTSession {
             if session.isValid() {
-                self.enableAudioPlaybackWithSession(session)
+                self.session = session
+                self.startPlayback()
                 validSession = true
             }
         }
@@ -60,13 +81,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var authCallback = { (error: NSError?, session: SPTSession?) -> Void in
             if let error = error {
-                NSLog("*** Auth error: %@", error)
+                self.log(String(format: "Auth error: %@", error))
                 return
             }
 
             if let session = session {
                 self.keychain.set( NSKeyedArchiver.archivedDataWithRootObject(session), key: kSessionUserDefaultsKey)
-                self.enableAudioPlaybackWithSession(session)
+                self.session = session
+                self.startPlayback()
             }
         }
         
@@ -77,9 +99,89 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return false
     }
+
+    func log(message: String) {
+        NSLog("%@", message)
+
+        wormhole.passMessageObject(message, identifier: Errors)
+    }
+
+    // MARK: - Spotify
     
-    func enableAudioPlaybackWithSession(session: SPTSession!) {
-        //var viewController = self.window!.rootViewController
-        //viewController.handleNewSession(session)
+    func startPlayback() {
+        player = SPTAudioStreamingController(clientId: auth.clientID)
+        player.diskCache = SPTDiskCache(capacity: 1024 * 1024 * 64)
+        player.playbackDelegate = self
+
+        player.loginWithSession(session, callback: { (error) -> Void in
+            if let error = error {
+                self.log(String(format: "Login error: %@", error))
+            }
+        })
+
+        wormhole.listenForMessageWithIdentifier(Next) { (reply) in
+            if let reply: AnyObject = reply {
+                self.player.skipNext({ (error) -> Void in
+                    if let error = error {
+                        self.log(String(format: "could not skip: %@", error))
+                    }
+                })
+            }
+        }
+
+        SPTYourMusic.savedTracksForUserWithAccessToken(session.accessToken, callback: { (error, result) -> Void in
+            if let result = result as? SPTListPage {
+                self.fetchAll(result) { (tracks) in
+                    let uris = SPTTrack.urisFromArray(tracks.shuffled())
+
+                    self.player.playURIs(uris, fromIndex: 0) { (error) -> Void in
+                        if let error = error {
+                            self.log(String(format: "playURIs error: %@", error))
+                        }
+                    }
+                }
+            }
+        })
+
+
+    }
+
+    func fetchAll(listPage: SPTListPage, _ callback: (tracks: [SPTSavedTrack]) -> Void) {
+        if listPage.hasNextPage {
+            listPage.requestNextPageWithSession(session, callback: { (error, page) -> Void in
+                if let page = page as? SPTListPage {
+                    self.fetchAll(listPage.pageByAppendingPage(page), callback)
+                }
+            })
+        } else {
+            if let items = listPage.items as? [SPTSavedTrack] {
+                callback(tracks: items)
+            }
+        }
+    }
+
+    // MARK: - SPTAudioStreamingPlaybackDelegate
+
+    func audioStreaming(audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: NSURL!) {
+        SPTTrack.trackWithURI(trackUri, session: session) { (error, track) -> Void in
+            if let error = error {
+                self.log(String(format: "trackWithURI error: %@", error))
+            }
+
+            if let track = track as? SPTTrack, artist = track.artists.first as? SPTPartialArtist {
+                self.wormhole.passMessageObject([ Track.ArtistName.rawValue: artist.name, Track.TrackName.rawValue: track.name ], identifier: TrackInfo)
+
+                let albumArtUrl = track.album.smallestCover.imageURL
+                NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: albumArtUrl), queue: NSOperationQueue.mainQueue(), completionHandler: { (_, data, _) -> Void in
+                    if let data = data {
+                        self.wormhole.passMessageObject([ Track.AlbumArt.rawValue: data ], identifier: TrackInfo)
+                    }
+                })
+            }
+        }
+    }
+
+    func audioStreaming(audioStreaming: SPTAudioStreamingController!, didFailToPlayTrack trackUri: NSURL!) {
+        log(String(format: "Failed to play track: %@", trackUri))
     }
 }

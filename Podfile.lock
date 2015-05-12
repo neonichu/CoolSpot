@@ -1,22 +1,32 @@
 PODS:
   - KeychainAccess (1.2.0)
   - Keys (1.0.0)
+  - MMWormhole (1.1.1):
+    - MMWormhole/Core (= 1.1.1)
+  - MMWormhole/Core (1.1.1)
   - SpotifySDK (0.1.0)
 
 DEPENDENCIES:
   - KeychainAccess
   - Keys (from `Pods/CocoaPodsKeys/`)
-  - SpotifySDK (from `../../Sources/spotify-ios-sdk`)
+  - MMWormhole
+  - SpotifySDK (from `https://github.com/neonichu/ios-sdk`)
 
 EXTERNAL SOURCES:
   Keys:
     :path: Pods/CocoaPodsKeys/
   SpotifySDK:
-    :path: ../../Sources/spotify-ios-sdk
+    :git: https://github.com/neonichu/ios-sdk
+
+CHECKOUT OPTIONS:
+  SpotifySDK:
+    :commit: 41780e8f7246e2a5c5afe1083b28f62d7bf3d39d
+    :git: https://github.com/neonichu/ios-sdk
 
 SPEC CHECKSUMS:
   KeychainAccess: 6ff20bd4990b4840d8bde4e977f8c58e0fe7f3c1
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
+  MMWormhole: 941cd168b4afd6073f883b82944d6eded4e00203
   SpotifySDK: e7b205876d5938dc3978a2074d199653089072c9
 
 COCOAPODS: 0.37.1
