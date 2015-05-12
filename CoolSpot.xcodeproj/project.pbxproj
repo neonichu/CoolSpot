@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		51CE40442C9D7ED93ED34BE6 /* Pods_CoolSpot_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		99D664EC072672D19310B430 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9870A09E9802D1188D79C816 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A14279CC1B02AE5E0086CB6F /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A14279CB1B02AE5E0086CB6F /* Launch Screen.xib */; };
+		A14279CE1B02AF910086CB6F /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A14279CD1B02AF910086CB6F /* app-icon.png */; };
 		A15A5A76194DE7D600FDE271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A75194DE7D600FDE271 /* AppDelegate.swift */; };
 		A15A5A78194DE7D600FDE271 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15A5A77194DE7D600FDE271 /* Images.xcassets */; };
 		A15A5A84194DE7D600FDE271 /* CoolSpotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A83194DE7D600FDE271 /* CoolSpotTests.swift */; };
@@ -120,6 +122,8 @@
 		328159BE741B69D0DC4FC71D /* Pods-CoolSpot WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolSpot WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoolSpot WatchKit Extension/Pods-CoolSpot WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolSpot_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9870A09E9802D1188D79C816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A14279CB1B02AE5E0086CB6F /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		A14279CD1B02AF910086CB6F /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
 		A15A5A70194DE7D600FDE271 /* CoolSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15A5A74194DE7D600FDE271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A15A5A75194DE7D600FDE271 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,7 +230,9 @@
 		A15A5A99194DE86500FDE271 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A14279CD1B02AF910086CB6F /* app-icon.png */,
 				A15A5A77194DE7D600FDE271 /* Images.xcassets */,
+				A14279CB1B02AE5E0086CB6F /* Launch Screen.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -429,6 +435,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15A5A78194DE7D600FDE271 /* Images.xcassets in Resources */,
+				A14279CC1B02AE5E0086CB6F /* Launch Screen.xib in Resources */,
+				A14279CE1B02AF910086CB6F /* app-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,7 +727,6 @@
 			baseConfigurationReference = D678D9176BCB29630D288C19 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Supporting Files/CoolSpot.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -735,7 +742,6 @@
 			baseConfigurationReference = ADF7260D923B3A2B1E42D56E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Supporting Files/CoolSpot.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
