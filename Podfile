@@ -1,7 +1,9 @@
 plugin 'cocoapods-keys', {
   :project => 'CoolSpot',
   :keys => [
-    'SpotifyClientId'
+    'SpotifyClientId',
+    'SpotifyTokenSwapURL',
+    'SpotifyTokenRefreshURL'
 ]}
 
 platform :ios, "8.0"

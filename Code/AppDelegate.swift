@@ -17,6 +17,8 @@ import UIKit
 let kClientId               = CoolSpotKeys().spotifyClientId()
 let kCallbackURL            = "coolspot://callback"
 let kSessionUserDefaultsKey = "SpotifySession"
+let kTokenRefreshURL        = CoolSpotKeys().spotifyTokenRefreshURL()
+let kTokenSwapURL           = CoolSpotKeys().spotifyTokenSwapURL()
 
 extension Array {
     func shuffled() -> [T] {
@@ -38,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
         auth.clientID = kClientId
         auth.redirectURL = NSURL(string: kCallbackURL)
         auth.requestedScopes = [SPTAuthUserReadPrivateScope, SPTAuthUserLibraryReadScope, SPTAuthStreamingScope]
+        auth.tokenRefreshURL = NSURL(string: kTokenRefreshURL)
+        auth.tokenSwapURL = NSURL(string: kTokenSwapURL)
         return auth
     }
     let keychain = Keychain(service: kClientId)
