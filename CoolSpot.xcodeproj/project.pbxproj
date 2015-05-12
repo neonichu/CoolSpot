@@ -720,7 +720,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = CoolSpot.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Supporting Files/CoolSpot.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
@@ -736,7 +736,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = CoolSpot.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Supporting Files/CoolSpot.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
@@ -786,7 +786,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FCD3E819C57A5620FC6706DC /* Pods-CoolSpot WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "CoolSpot WatchKit Extension/CoolSpot WatchKit Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "WatchKit Extension/CoolSpot WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -809,7 +809,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 328159BE741B69D0DC4FC71D /* Pods-CoolSpot WatchKit Extension.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "CoolSpot WatchKit Extension/CoolSpot WatchKit Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "WatchKit Extension/CoolSpot WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;

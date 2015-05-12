@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Boris Bügling. All rights reserved.
 //
 
+import AVFoundation
 import KeychainAccess
 import Keys
+import MediaPlayer
 import MMWormhole
 import Spotify
 import UIKit
@@ -73,7 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.rootViewController = UIViewController()
         self.window?.makeKeyAndVisible()
-        
+
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
         return true
     }
     
@@ -99,6 +102,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
         
         return false
     }
+
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        application.beginBackgroundTaskWithExpirationHandler() { }
+    }
+
+    // MARK: - Logging
 
     func log(message: String) {
         NSLog("%@", message)
@@ -160,6 +169,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
         }
     }
 
+    func play() {
+        self.player.setIsPlaying(self.player.isPlaying, callback: { (error) -> Void in
+            if let error = error {
+                self.log(String(format: "setIsPlaying error: %@", error))
+            }
+        })
+    }
+
     // MARK: - SPTAudioStreamingPlaybackDelegate
 
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: NSURL!) {
@@ -169,16 +186,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
             }
 
             if let track = track as? SPTTrack, artist = track.artists.first as? SPTPartialArtist {
+                var info: [String:AnyObject] = [ MPMediaItemPropertyTitle: track.name, MPMediaItemPropertyArtist: artist.name ]
+
                 self.wormhole.passMessageObject([ Track.ArtistName.rawValue: artist.name, Track.TrackName.rawValue: track.name ], identifier: TrackInfo)
 
+                let largeAlbumArtUrl = track.album.largestCover.imageURL
+                NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: largeAlbumArtUrl), queue: NSOperationQueue.mainQueue()) { (_, data, _) -> Void in
+                    if let data = data, image = UIImage(data: data), itemImage = MPMediaItemArtwork(image: image) {
+                        info[MPMediaItemPropertyArtwork] = itemImage
+                    }
+
+                    let center = MPNowPlayingInfoCenter.defaultCenter()
+                    center.nowPlayingInfo = info
+                }
+
                 let albumArtUrl = track.album.smallestCover.imageURL
-                NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: albumArtUrl), queue: NSOperationQueue.mainQueue(), completionHandler: { (_, data, _) -> Void in
+                NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: albumArtUrl), queue: NSOperationQueue.mainQueue()) { (_, data, _) -> Void in
                     if let data = data {
                         self.wormhole.passMessageObject([ Track.AlbumArt.rawValue: data ], identifier: TrackInfo)
                     }
-                })
+                }
             }
         }
+    }
+
+    func audioStreaming(audioStreaming: SPTAudioStreamingController!, didChangePlaybackStatus isPlaying: Bool) {
+        AVAudioSession.sharedInstance().setActive(isPlaying, error: nil)
+
+        let center = MPRemoteCommandCenter.sharedCommandCenter()
+        center.playCommand.addTarget(self, action: "play")
+        center.playCommand.enabled = true
     }
 
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didFailToPlayTrack trackUri: NSURL!) {
