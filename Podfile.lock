@@ -1,4 +1,5 @@
 PODS:
+  - BBUDeviceColors (0.1.0)
   - KeychainAccess (1.2.0)
   - Keys (1.0.0)
   - MMWormhole (1.1.1):
@@ -7,6 +8,7 @@ PODS:
   - SpotifySDK (0.1.0)
 
 DEPENDENCIES:
+  - BBUDeviceColors
   - KeychainAccess
   - Keys (from `Pods/CocoaPodsKeys/`)
   - MMWormhole
@@ -24,6 +26,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/neonichu/ios-sdk
 
 SPEC CHECKSUMS:
+  BBUDeviceColors: 4b8c0958a45c14f9e9a6fbec915f71c01017ef1b
   KeychainAccess: 6ff20bd4990b4840d8bde4e977f8c58e0fe7f3c1
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   MMWormhole: 941cd168b4afd6073f883b82944d6eded4e00203

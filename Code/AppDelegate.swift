@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import BBUDeviceColors
 import KeychainAccess
 import Keys
 import MediaPlayer
@@ -79,11 +80,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = UIViewController()
 
+        let enclosureColor = UIDevice.currentDevice().bbu_enclosureColor()
+
         if let window = window, vc = window.rootViewController {
-            window.backgroundColor = UIColor.whiteColor()
+            vc.view.backgroundColor = enclosureColor
+
+            window.backgroundColor = enclosureColor
             window.makeKeyAndVisible()
 
             imageView = UIImageView(frame: window.bounds)
+            imageView.backgroundColor = enclosureColor
             imageView.contentMode = .ScaleAspectFit
             vc.view.addSubview(imageView)
         }

@@ -9,6 +9,7 @@ plugin 'cocoapods-keys', {
 platform :ios, "8.0"
 use_frameworks!
 
+pod 'BBUDeviceColors'
 pod 'KeychainAccess'
 pod 'MMWormhole'
 pod 'SpotifySDK', :git => 'https://github.com/neonichu/ios-sdk'
