@@ -224,8 +224,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
         AVAudioSession.sharedInstance().setActive(isPlaying, error: nil)
 
         let center = MPRemoteCommandCenter.sharedCommandCenter()
+
         center.playCommand.addTarget(self, action: "play")
         center.playCommand.enabled = true
+
+        center.pauseCommand.addTarget(self, action: "play")
+        center.pauseCommand.enabled = true
+
+        center.togglePlayPauseCommand.addTarget(self, action: "play")
+        center.togglePlayPauseCommand.enabled = true
     }
 
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didFailToPlayTrack trackUri: NSURL!) {
