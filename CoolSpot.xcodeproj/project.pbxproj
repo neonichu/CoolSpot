@@ -136,7 +136,7 @@
 		A1DA12341B01715600346D6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		A1DA12361B01715600346D6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A1DA12421B01753200346D6B /* CoolSpot WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "CoolSpot WatchKit Extension.entitlements"; sourceTree = "<group>"; };
-		A1DA12431B01754D00346D6B /* CoolSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CoolSpot.entitlements; sourceTree = SOURCE_ROOT; };
+		A1DA12431B01754D00346D6B /* CoolSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CoolSpot.entitlements; sourceTree = "<group>"; };
 		A1DA12441B01758100346D6B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ADF7260D923B3A2B1E42D56E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D678D9176BCB29630D288C19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,8 +211,7 @@
 				A1DA12431B01754D00346D6B /* CoolSpot.entitlements */,
 				A15A5A74194DE7D600FDE271 /* Info.plist */,
 			);
-			name = "Supporting Files";
-			path = CoolSpot;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A15A5A80194DE7D600FDE271 /* Tests */ = {
@@ -240,8 +239,7 @@
 				A1DA12241B01715600346D6B /* InterfaceController.swift */,
 				A1DA12221B01715600346D6B /* Info.plist */,
 			);
-			name = "WatchKit Extension";
-			path = "CoolSpot WatchKit Extension";
+			path = "WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		A1DA12301B01715600346D6B /* WatchKit App */ = {
@@ -252,15 +250,14 @@
 				A1DA12321B01715600346D6B /* Info.plist */,
 				A1DA12311B01715600346D6B /* Supporting Files */,
 			);
-			name = "WatchKit App";
-			path = "CoolSpot WatchKit App";
+			path = "WatchKit App";
 			sourceTree = "<group>";
 		};
 		A1DA12311B01715600346D6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B26EDC234D2B16A02E864FD3 /* Pods */ = {
@@ -634,6 +631,7 @@
 				A1DA12341B01715600346D6B /* Base */,
 			);
 			name = Interface.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -725,7 +723,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoolSpot.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -741,7 +739,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoolSpot.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -797,7 +795,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "CoolSpot WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -817,7 +815,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "CoolSpot WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -838,7 +836,7 @@
 					"$(inherited)",
 				);
 				IBSC_MODULE = CoolSpot_WatchKit_Extension;
-				INFOPLIST_FILE = "CoolSpot WatchKit App/Info.plist";
+				INFOPLIST_FILE = "WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -856,7 +854,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = CoolSpot_WatchKit_Extension;
-				INFOPLIST_FILE = "CoolSpot WatchKit App/Info.plist";
+				INFOPLIST_FILE = "WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

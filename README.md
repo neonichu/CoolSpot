@@ -6,7 +6,7 @@ My little playground Spotify app, using the [new SDK](https://github.com/spotify
 
 Do a 
 
-    $ pod install
+    $ make pod
 
 and then open the workspace and you should be good to go.
 
