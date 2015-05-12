@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
     let keychain = Keychain(service: kClientId)
     let wormhole = MMWormhole(applicationGroupIdentifier: AppGroupIdentifier, optionalDirectory: AppGroupIdentifier)
 
+    var imageView: UIImageView!
     var player: SPTAudioStreamingController!
     var session: SPTSession!
     var window: UIWindow?
@@ -59,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
         if let data = keychain.getData(kSessionUserDefaultsKey), session = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? SPTSession {
             if session.isValid() {
                 self.session = session
-                self.startPlayback()
+                startPlayback()
                 validSession = true
             }
         }
@@ -75,10 +76,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
             })
         }
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.backgroundColor = UIColor.whiteColor()
-        self.window?.rootViewController = UIViewController()
-        self.window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.rootViewController = UIViewController()
+
+        if let window = window, vc = window.rootViewController {
+            window.backgroundColor = UIColor.whiteColor()
+            window.makeKeyAndVisible()
+
+            imageView = UIImageView(frame: window.bounds)
+            imageView.contentMode = .ScaleAspectFit
+            vc.view.addSubview(imageView)
+        }
 
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
         return true
@@ -180,7 +188,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
     }
 
     func play() {
-        self.player.setIsPlaying(!self.player.isPlaying, callback: { (error) -> Void in
+        player.setIsPlaying(!player.isPlaying, callback: { (error) -> Void in
             if let error = error {
                 self.log(String(format: "setIsPlaying error: %@", error))
             }
@@ -203,6 +211,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
                 let largeAlbumArtUrl = track.album.largestCover.imageURL
                 NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: largeAlbumArtUrl), queue: NSOperationQueue.mainQueue()) { (_, data, _) -> Void in
                     if let data = data, image = UIImage(data: data), itemImage = MPMediaItemArtwork(image: image) {
+                        self.imageView.image = image
+
                         info[MPMediaItemPropertyArtwork] = itemImage
                     }
 
