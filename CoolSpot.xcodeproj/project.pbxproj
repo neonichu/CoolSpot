@@ -205,6 +205,7 @@
 			children = (
 				A15A5A75194DE7D600FDE271 /* AppDelegate.swift */,
 				A1DA12441B01758100346D6B /* Constants.swift */,
+				A135BB2E1B04C06800DD2EFF /* SpotifyAuth.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -551,6 +552,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A135BB2F1B04C06800DD2EFF /* SpotifyAuth.swift in Sources */,
 				A15A5A76194DE7D600FDE271 /* AppDelegate.swift in Sources */,
 				A1DA12451B01758100346D6B /* Constants.swift in Sources */,
 			);
