@@ -56,17 +56,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
     // MARK: - Application lifecycle
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        var validSession = false
-
         if let data = keychain.getData(kSessionUserDefaultsKey), session = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? SPTSession {
+            auth.session = session
+
             if session.isValid() {
                 self.session = session
                 startPlayback()
-                validSession = true
-            }
-        }
+            } else {
+                auth.sessionUserDefaultsKey = "spotifySession"
+                auth.renewSession(session) { (error, session) in
+                    if let error = error {
+                        self.log(String(format: "Token refresh error: %@", error))
+                        return
+                    }
 
-        if !validSession {
+                    if let session = session {
+                        self.session = session
+                        self.startPlayback()
+                    }
+                }
+            }
+        } else {
             var loginURL = auth.loginURL
 
             var delayInSeconds = 0.1
