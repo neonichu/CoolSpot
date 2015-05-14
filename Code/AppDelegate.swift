@@ -8,18 +8,10 @@
 
 import AVFoundation
 import BBUDeviceColors
-import KeychainAccess
-import Keys
 import MediaPlayer
 import MMWormhole
 import Spotify
 import UIKit
-
-let kClientId               = CoolSpotKeys().spotifyClientId()
-let kCallbackURL            = "coolspot://callback"
-let kSessionUserDefaultsKey = "SpotifySession"
-let kTokenRefreshURL        = CoolSpotKeys().spotifyTokenRefreshURL()
-let kTokenSwapURL           = CoolSpotKeys().spotifyTokenSwapURL()
 
 extension Array {
     func shuffled() -> [T] {
@@ -36,56 +28,19 @@ extension Array {
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlaybackDelegate {
-    var auth: SPTAuth {
-        let auth = SPTAuth.defaultInstance()
-        auth.clientID = kClientId
-        auth.redirectURL = NSURL(string: kCallbackURL)
-        auth.requestedScopes = [SPTAuthUserReadPrivateScope, SPTAuthUserLibraryReadScope, SPTAuthStreamingScope]
-        auth.tokenRefreshURL = NSURL(string: kTokenRefreshURL)
-        auth.tokenSwapURL = NSURL(string: kTokenSwapURL)
-        return auth
-    }
-    let keychain = Keychain(service: kClientId)
+    var auth = SpotifyAuth()
     let wormhole = MMWormhole(applicationGroupIdentifier: AppGroupIdentifier, optionalDirectory: AppGroupIdentifier)
 
     var imageView: UIImageView!
     var player: SPTAudioStreamingController!
-    var session: SPTSession!
     var window: UIWindow?
 
     // MARK: - Application lifecycle
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        if let data = keychain.getData(kSessionUserDefaultsKey), session = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? SPTSession {
-            auth.session = session
-
-            if session.isValid() {
-                self.session = session
-                startPlayback()
-            } else {
-                auth.sessionUserDefaultsKey = "spotifySession"
-                auth.renewSession(session) { (error, session) in
-                    if let error = error {
-                        self.log(String(format: "Token refresh error: %@", error))
-                        return
-                    }
-
-                    if let session = session {
-                        self.session = session
-                        self.startPlayback()
-                    }
-                }
-            }
-        } else {
-            var loginURL = auth.loginURL
-
-            var delayInSeconds = 0.1
-            var popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
-            dispatch_after(popTime, dispatch_get_main_queue(), {
-                UIApplication.sharedApplication().openURL(loginURL)
-                return
-            })
-        }
+        auth.log = self.log
+        auth.startPlayback = self.startPlayback
+        auth.start()
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = UIViewController()
@@ -109,26 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        
-        var authCallback = { (error: NSError?, session: SPTSession?) -> Void in
-            if let error = error {
-                self.log(String(format: "Auth error: %@", error))
-                return
-            }
-
-            if let session = session {
-                self.keychain.set( NSKeyedArchiver.archivedDataWithRootObject(session), key: kSessionUserDefaultsKey)
-                self.session = session
-                self.startPlayback()
-            }
-        }
-        
-        if (auth.canHandleURL(url)) {
-            auth.handleAuthCallbackWithTriggeredAuthURL(url, callback:authCallback)
-            return true
-        }
-        
-        return false
+        return auth.handleOpenURL(url)
     }
 
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
@@ -150,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
         player.diskCache = SPTDiskCache(capacity: 1024 * 1024 * 64)
         player.playbackDelegate = self
 
-        player.loginWithSession(session, callback: { (error) -> Void in
+        player.loginWithSession(auth.session, callback: { (error) -> Void in
             if let error = error {
                 self.log(String(format: "Login error: %@", error))
             }
@@ -172,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
             }
         }
 
-        SPTYourMusic.savedTracksForUserWithAccessToken(session.accessToken, callback: { (error, result) -> Void in
+        SPTYourMusic.savedTracksForUserWithAccessToken(auth.session.accessToken, callback: { (error, result) -> Void in
             if let result = result as? SPTListPage {
                 self.fetchAll(result) { (tracks) in
                     let uris = SPTTrack.urisFromArray(tracks.shuffled())
@@ -185,13 +121,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
                 }
             }
         })
-
-
     }
 
     func fetchAll(listPage: SPTListPage, _ callback: (tracks: [SPTSavedTrack]) -> Void) {
         if listPage.hasNextPage {
-            listPage.requestNextPageWithSession(session, callback: { (error, page) -> Void in
+            listPage.requestNextPageWithSession(auth.session, callback: { (error, page) -> Void in
                 if let page = page as? SPTListPage {
                     self.fetchAll(listPage.pageByAppendingPage(page), callback)
                 }
@@ -214,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingPlayback
     // MARK: - SPTAudioStreamingPlaybackDelegate
 
     func audioStreaming(audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: NSURL!) {
-        SPTTrack.trackWithURI(trackUri, session: session) { (error, track) -> Void in
+        SPTTrack.trackWithURI(trackUri, session: auth.session) { (error, track) -> Void in
             if let error = error {
                 self.log(String(format: "trackWithURI error: %@", error))
             }

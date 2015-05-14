@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		51CE40442C9D7ED93ED34BE6 /* Pods_CoolSpot_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		99D664EC072672D19310B430 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9870A09E9802D1188D79C816 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A135BB321B04C79B00DD2EFF /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135BB311B04C79B00DD2EFF /* SpotifyAuth.swift */; };
 		A14279CC1B02AE5E0086CB6F /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A14279CB1B02AE5E0086CB6F /* Launch Screen.xib */; };
 		A14279CE1B02AF910086CB6F /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A14279CD1B02AF910086CB6F /* app-icon.png */; };
 		A15A5A76194DE7D600FDE271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A75194DE7D600FDE271 /* AppDelegate.swift */; };
@@ -122,6 +123,7 @@
 		328159BE741B69D0DC4FC71D /* Pods-CoolSpot WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolSpot WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoolSpot WatchKit Extension/Pods-CoolSpot WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolSpot_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9870A09E9802D1188D79C816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A135BB311B04C79B00DD2EFF /* SpotifyAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 		A14279CB1B02AE5E0086CB6F /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		A14279CD1B02AF910086CB6F /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
 		A15A5A70194DE7D600FDE271 /* CoolSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 			children = (
 				A15A5A75194DE7D600FDE271 /* AppDelegate.swift */,
 				A1DA12441B01758100346D6B /* Constants.swift */,
+				A135BB311B04C79B00DD2EFF /* SpotifyAuth.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A135BB321B04C79B00DD2EFF /* SpotifyAuth.swift in Sources */,
 				A15A5A76194DE7D600FDE271 /* AppDelegate.swift in Sources */,
 				A1DA12451B01758100346D6B /* Constants.swift in Sources */,
 			);
