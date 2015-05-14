@@ -21,3 +21,12 @@ pod 'MMWormhole'
 
 end
 
+target "SpotMenu" do
+
+platform :osx, "10.10"
+
+pod 'KeychainAccess'
+pod 'SpotifySDK', :git => 'https://github.com/neonichu/ios-sdk' # No OS X :(
+pod 'SPTMediaKeys', :git => 'https://github.com/neonichu/SPMediaKeyTap.git'
+
+end

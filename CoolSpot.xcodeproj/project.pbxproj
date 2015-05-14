@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		51CE40442C9D7ED93ED34BE6 /* Pods_CoolSpot_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		99D664EC072672D19310B430 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9870A09E9802D1188D79C816 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A135BB141B04B8BE00DD2EFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135BB131B04B8BE00DD2EFF /* AppDelegate.swift */; };
+		A135BB181B04B8BE00DD2EFF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A135BB171B04B8BE00DD2EFF /* Images.xcassets */; };
+		A135BB1B1B04B8BE00DD2EFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A135BB191B04B8BE00DD2EFF /* Main.storyboard */; };
+		A135BB2F1B04C06800DD2EFF /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135BB2E1B04C06800DD2EFF /* SpotifyAuth.swift */; };
+		A135BB301B04C06800DD2EFF /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135BB2E1B04C06800DD2EFF /* SpotifyAuth.swift */; };
 		A14279CC1B02AE5E0086CB6F /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A14279CB1B02AE5E0086CB6F /* Launch Screen.xib */; };
 		A14279CE1B02AF910086CB6F /* app-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A14279CD1B02AF910086CB6F /* app-icon.png */; };
 		A15A5A76194DE7D600FDE271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A5A75194DE7D600FDE271 /* AppDelegate.swift */; };
@@ -122,6 +127,12 @@
 		328159BE741B69D0DC4FC71D /* Pods-CoolSpot WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolSpot WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoolSpot WatchKit Extension/Pods-CoolSpot WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		50716272FAE3FA83AAF6DFB7 /* Pods_CoolSpot_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolSpot_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9870A09E9802D1188D79C816 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A135BB0F1B04B8BE00DD2EFF /* SpotMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A135BB121B04B8BE00DD2EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A135BB131B04B8BE00DD2EFF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A135BB171B04B8BE00DD2EFF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A135BB1A1B04B8BE00DD2EFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A135BB2E1B04C06800DD2EFF /* SpotifyAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 		A14279CB1B02AE5E0086CB6F /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		A14279CD1B02AF910086CB6F /* app-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon.png"; sourceTree = "<group>"; };
 		A15A5A70194DE7D600FDE271 /* CoolSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +159,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A135BB0C1B04B8BE00DD2EFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A15A5A6D194DE7D600FDE271 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +192,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A135BB101B04B8BE00DD2EFF /* SpotMenu */ = {
+			isa = PBXGroup;
+			children = (
+				A135BB131B04B8BE00DD2EFF /* AppDelegate.swift */,
+				A135BB121B04B8BE00DD2EFF /* Info.plist */,
+				A135BB171B04B8BE00DD2EFF /* Images.xcassets */,
+				A135BB191B04B8BE00DD2EFF /* Main.storyboard */,
+			);
+			path = SpotMenu;
+			sourceTree = "<group>";
+		};
 		A15A5A67194DE7D600FDE271 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +211,7 @@
 				B26EDC234D2B16A02E864FD3 /* Pods */,
 				A15A5A71194DE7D600FDE271 /* Products */,
 				A15A5A99194DE86500FDE271 /* Resources */,
+				A135BB101B04B8BE00DD2EFF /* SpotMenu */,
 				A15A5A73194DE7D600FDE271 /* Supporting Files */,
 				A15A5A80194DE7D600FDE271 /* Tests */,
 				A1DA12301B01715600346D6B /* WatchKit App */,
@@ -196,6 +226,7 @@
 				A15A5A7D194DE7D600FDE271 /* CoolSpotTests.xctest */,
 				A1DA121F1B01715600346D6B /* CoolSpot WatchKit Extension.appex */,
 				A1DA122C1B01715600346D6B /* CoolSpot WatchKit App.app */,
+				A135BB0F1B04B8BE00DD2EFF /* SpotMenu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -290,6 +321,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A135BB0E1B04B8BE00DD2EFF /* SpotMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A135BB2C1B04B8BE00DD2EFF /* Build configuration list for PBXNativeTarget "SpotMenu" */;
+			buildPhases = (
+				A135BB0B1B04B8BE00DD2EFF /* Sources */,
+				A135BB0C1B04B8BE00DD2EFF /* Frameworks */,
+				A135BB0D1B04B8BE00DD2EFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpotMenu;
+			productName = SpotMenu;
+			productReference = A135BB0F1B04B8BE00DD2EFF /* SpotMenu.app */;
+			productType = "com.apple.product-type.application";
+		};
 		A15A5A6F194DE7D600FDE271 /* CoolSpot */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A15A5A87194DE7D600FDE271 /* Build configuration list for PBXNativeTarget "CoolSpot" */;
@@ -382,6 +430,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Boris Bügling";
 				TargetAttributes = {
+					A135BB0E1B04B8BE00DD2EFF = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 					A15A5A6F194DE7D600FDE271 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = RWJ5E97L7R;
@@ -427,11 +478,21 @@
 				A15A5A7C194DE7D600FDE271 /* CoolSpotTests */,
 				A1DA121E1B01715600346D6B /* CoolSpot WatchKit Extension */,
 				A1DA122B1B01715600346D6B /* CoolSpot WatchKit App */,
+				A135BB0E1B04B8BE00DD2EFF /* SpotMenu */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A135BB0D1B04B8BE00DD2EFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A135BB181B04B8BE00DD2EFF /* Images.xcassets in Resources */,
+				A135BB1B1B04B8BE00DD2EFF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A15A5A6E194DE7D600FDE271 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -548,6 +609,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A135BB0B1B04B8BE00DD2EFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A135BB301B04C06800DD2EFF /* SpotifyAuth.swift in Sources */,
+				A135BB141B04B8BE00DD2EFF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A15A5A6C194DE7D600FDE271 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -636,6 +706,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A135BB191B04B8BE00DD2EFF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A135BB1A1B04B8BE00DD2EFF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		A1DA12331B01715600346D6B /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -648,6 +726,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A135BB281B04B8BE00DD2EFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpotMenu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A135BB291B04B8BE00DD2EFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = SpotMenu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		A15A5A85194DE7D600FDE271 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -882,6 +999,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A135BB2C1B04B8BE00DD2EFF /* Build configuration list for PBXNativeTarget "SpotMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A135BB281B04B8BE00DD2EFF /* Debug */,
+				A135BB291B04B8BE00DD2EFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A15A5A6B194DE7D600FDE271 /* Build configuration list for PBXProject "CoolSpot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
